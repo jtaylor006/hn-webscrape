@@ -1,0 +1,16 @@
+{
+  "name": "hn-webscrape",
+  "version": "1.0.0",
+  "description": "using hackernoon to create a webscraper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jarred Taylor",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "cheerio": "^1.0.0-rc.3",
+    "puppeteer": "^5.4.1"
+  }
+}
