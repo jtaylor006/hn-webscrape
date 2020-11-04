@@ -1,12 +1,31 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
+const puppeteer = require('puppeteer');
+puppeteer.launch()
 
-axios.get('https://www.forextradingbig.com/instaforex-broker-review/')
-    .then(response => {
-        const html = response.data;
-        const $ = cheerio.load(html);
-        const scrapedata = $('a', '.comment-bubble').text();;
-        console.log(scrapedata);
-    }).catch(error => {
-        console.log(error);
+    .then(async browser => {
+        const page = await browser.newPage();
+        await page.goto('https://www.reddit.com/r/scraping/');
+        await page.waitForSelector('body');
+        let grabPosts = await page.evaluate(() => {
+            let allPosts = document.body.querySelectorAll('.Post');
+            scrapeItems = [];
+            allPosts.forEach(item => {
+                let postTitle = item.querySelector('h3').innerText;
+                let postDescription = '';
+                try {
+                    postDescription = item.querySelector('p').innerText;
+                } catch (err) {}
+                scrapeItems.push({
+                    postTitle: postTitle,
+                    postDescription: postDescription,
+                });
+            });
+            let item = {
+                "redditPosts": scrapeItems,
+            };
+            return items;
+        });
+        console.log(grabPosts);
+        await browser.close();
+    }).catch(function (err) {
+        console.error(err);
     });
