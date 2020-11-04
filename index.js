@@ -29,3 +29,11 @@ puppeteer.launch()
     }).catch(function (err) {
         console.error(err);
     });
+
+// line 2: initiating Puppeteer
+// line 5-6: opening a new page and navigating to Reddit
+// line 8: manipulating the page's content
+// line 10-: storing the post items in an array then selecting for retrieving content
+// line 27: outputting the scraped data
+// line 28: closing the browser
+// line 29: handling any errors
