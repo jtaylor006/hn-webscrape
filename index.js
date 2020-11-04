@@ -10,3 +10,10 @@ axios.get('https://www.forextradingbig.com/instaforex-broker-review/')
     }).catch(error => {
         console.log(error);
     });
+
+    // line 4: performing a GET request
+    // line 6: handling the success
+    // line 7: loading response data into a Cheerio instance
+    // line 8: selecting the elements with the data
+    // line 9: outputting the scraped data
+    // line 10: handling error
